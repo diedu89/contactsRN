@@ -14,11 +14,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 class contactRow extends Component {
   render() {
     return (
-      <View style={{flexDirection: 'row'}}>
-      	<Text>{this.props.data.rowData.name}</Text>
-      	<Text>{this.props.data.rowData.phone}</Text>
+      <View style={{flexDirection: 'row', padding: 10}}>
+      	<Text style={{flex:1}} >{this.props.data.rowData.name}</Text>
+      	<Text style={{flex:4}}>{this.props.data.rowData.phone}</Text>
       	<TouchableOpacity onPress={()=>this.props.onCall(this.props.rowData)}>
-      		<Icon name="phone" />
+      		<Icon flex={{flex: 1}} name="phone" />
       	</TouchableOpacity>
       </View>
     );

@@ -19,13 +19,15 @@ class list extends Component {
 	  this.dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 	}
 
-	onFilter(text){
-		console.log(text);
+	onCall(data){
+		
 	}
 
-	onCall(data){
-		console.log(data);
-	}
+  static rightTitle = "New";
+
+  static onRight(){
+    
+  }
 
 	renderContactRow(rowData, sectionID, rowID, highlightRow){
 		return (<ContactRow data={{rowData, sectionID, rowID, highlightRow}} onCall={this.onCall} />);

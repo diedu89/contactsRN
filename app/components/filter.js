@@ -14,7 +14,7 @@ class filter extends Component {
   render() {
     return (
     	<View>
-	    	<TextInput onChangeText={this.props.onFilter}/>
+	    	<TextInput onChangeText={this.props.onFilter} value={this.props.filter}/>
     	</View>
     );
   }

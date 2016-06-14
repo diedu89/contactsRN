@@ -1,4 +1,5 @@
 import {
+	SAVE_CONTACT,
 	NEW_CONTACT,
 	EDIT_CONTACT,
 } from '../actions/contact'
@@ -6,16 +7,17 @@ import {
 export default function(state = {}, action){
 	switch(action.type){
 		case NEW_CONTACT:
+		case SAVE_CONTACT:
 			return {
 				...state,
+				id: null,
 				name: '',
 				phone: '',
 			};
 		case EDIT_CONTACT:
 			return {
 				...state,
-				name: action.name,
-				phone: action.phone,
+				...action.contact
 			};
 		default:
 		 return state;

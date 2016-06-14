@@ -18,18 +18,13 @@ import { Actions, Router, Scene } from 'react-native-router-flux';
 import Store from './app/store/configureStore'
 import List from './app/containers/listContainer';
 
-
 class dummyContacts extends Component {
-  _newContact(){
-    console.log("nuevo");
-  }
-
   render() {
     return (
       <Provider store={Store}>
         <Router>
           <Scene key="root">
-            <Scene key="list" title="Contactos" component={List} initial={true} rightTitle="Nuevo" onRight={this._newContact}/>
+            <Scene key="list" title="Contacts" component={List} initial={true}/>
           </Scene>
         </Router>
       </Provider>
