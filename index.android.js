@@ -27,7 +27,7 @@ class dummyContacts extends Component {
         <Router>
           <Scene key="root">
             <Scene key="list" title="Contacts" component={List} initial={true} hideNavBar={true}/>
-            <Scene key="contact" title="Contact" component={Contact} />
+            <Scene key="contact" title="Contact" component={Contact} hideNavBar={false} style={{paddingTop: 80}}/>
           </Scene>
         </Router>
       </Provider>

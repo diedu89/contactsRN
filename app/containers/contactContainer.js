@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 import ContactForm from '../components/contactForm';
 import { filter } from '../actions/list';
-import { edit, new_contact } from '../actions/contact';
+import { saveAndGoBack } from '../actions/contact';
 import { Actions } from 'react-native-router-flux';
 
 const mapStateToProps = (state) => {
@@ -14,8 +14,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		save: () => {
-			console.log('save')
+		save: (contact) => {
+			dispatch(saveAndGoBack(contact))
 		}
 	}
 }

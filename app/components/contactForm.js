@@ -11,19 +11,41 @@ import {
 } from 'react-native';
 
 class contactForm extends Component {
+
+	componentWillMount(){
+		this.setState({
+			id: this.props.id,
+			name: this.props.name,
+			phone: (this.props.phone && this.props.phone.toString()) || '',
+		})
+	}
+
+	save(){
+		this.props.save({
+			id: this.state.id,
+			name: this.state.name,
+			phone: this.state.phone,
+		});
+	}
+
   render() {
-    console.log(this.props);
     return (
       <View>
       	<View style={styles.row}>
       		<Text style={styles.label}>Name</Text>
-      		<TextInput style={styles.control} defaultValue={this.props.name} />
+      		<TextInput 
+						style={styles.control} 
+						value={this.state.name} 
+						onChangeText={(text) => this.setState({name: text})}/>
       	</View>
       	<View style={styles.row}>
       		<Text style={styles.label}>Phone</Text>
-      		<TextInput style={styles.control} defaultValue={this.props.phone.toString()} />
+      		<TextInput 
+						style={styles.control} 
+						value={this.state.phone} 
+						onChangeText={(text) => this.setState({phone: text})}/>
       	</View>
-      	<TouchableOpacity onPress={this.props.save}>
+      	<TouchableOpacity onPress={this.save.bind(this)}>
       		<Text>Guardar</Text>
       	</TouchableOpacity>
       </View>

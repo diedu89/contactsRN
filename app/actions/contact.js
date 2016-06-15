@@ -1,5 +1,7 @@
+import { Actions } from 'react-native-router-flux';
+
 export const SAVE_CONTACT = 'SAVE_CONTACT';
-export function saveContact(contact){
+export function save(contact){
 	return {
 		type: SAVE_CONTACT,
 		contact
@@ -19,4 +21,11 @@ export function editContact(contact){
 		type: EDIT_CONTACT,
 		contact,
 	};
+}
+
+export function saveAndGoBack(contact){
+	return function(dispatch){
+		dispatch(save(contact));
+		Actions.list();
+	}
 }
