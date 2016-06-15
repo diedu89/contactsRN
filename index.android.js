@@ -17,14 +17,17 @@ import { Actions, Router, Scene } from 'react-native-router-flux';
 
 import Store from './app/store/configureStore'
 import List from './app/containers/listContainer';
+import Contact from './app/containers/contactContainer';
 
 class dummyContacts extends Component {
+
   render() {
     return (
       <Provider store={Store}>
         <Router>
           <Scene key="root">
-            <Scene key="list" title="Contacts" component={List} initial={true}/>
+            <Scene key="list" title="Contacts" component={List} initial={true} hideNavBar={true}/>
+            <Scene key="contact" title="Contact" component={Contact} />
           </Scene>
         </Router>
       </Provider>
@@ -33,22 +36,6 @@ class dummyContacts extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
 });
 
 AppRegistry.registerComponent('dummyContacts', () => dummyContacts);

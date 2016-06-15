@@ -3,8 +3,8 @@
 import { connect } from 'react-redux';
 import List from '../components/list';
 import { filter } from '../actions/list';
-import { edit, new_contact } from '../actions/contact';
-import { Actions } from 'react-native-flux-router';
+import { editContact, newContact } from '../actions/contact';
+import { Actions } from 'react-native-router-flux';
 
 const getFiltered = (data, text) => {
 	var regex = new RegExp(text, 'i');
@@ -25,10 +25,12 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(filter(text));
 		},
 		new_contact: () => {
-
+			Actions.contact();
+			dispatch(newContact());
 		},
 		edit: (contact) => {
-			dispatch()
+			Actions.contact();
+			dispatch(editContact(contact));
 		}
 	}
 }

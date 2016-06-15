@@ -6,6 +6,8 @@ import {
   StyleSheet,
   View,
   ListView,
+  Text,
+  TouchableOpacity,
 } from 'react-native';
 
 import Filter from './filter'
@@ -20,22 +22,23 @@ class list extends Component {
 	}
 
 	onCall(data){
-		
+    console.log(data);
+		//this.props.edit(data);
 	}
 
-  static rightTitle = "New";
-
-  static onRight(){
-    
-  }
-
 	renderContactRow(rowData, sectionID, rowID, highlightRow){
-		return (<ContactRow data={{rowData, sectionID, rowID, highlightRow}} onCall={this.onCall} />);
+		return (<ContactRow data={{rowData, sectionID, rowID, highlightRow}} onCall={this.onCall.bind(this)} onEdit={this.props.edit}/>);
 	}
 
   render() {
     return (
-    	<View style={{marginTop: 100}}>
+    	<View style={{marginTop: 10}}>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={{flex: 5}}>Contacts</Text>
+          <TouchableOpacity onPress={this.props.new_contact}>
+            <Text style={{flex: 1}}>New</Text>
+          </TouchableOpacity>
+        </View>
     		<Filter onFilter={this.props.onFilter}/>
     		<ListView 
     		  enableEmptySections={true}

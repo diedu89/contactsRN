@@ -15,6 +15,7 @@ export default function(state = {}, action){
 				phone: '',
 			};
 		case EDIT_CONTACT:
+			console.log(action);
 			return {
 				...state,
 				...action.contact

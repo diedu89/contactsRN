@@ -16,7 +16,7 @@ export function newContact(){
 export const EDIT_CONTACT = 'EDIT_CONTACT';
 export function editContact(contact){
 	return {
-		contact, 
-		type: EDIT_CONTACT
+		type: EDIT_CONTACT,
+		contact,
 	};
 }
